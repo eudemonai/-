@@ -44,7 +44,7 @@ def poc(target):
 
 def main():
     banner()
-    parser =argparse.ArgumentParser(description="大华智慧园区")
+    parser =argparse.ArgumentParser(description="汉得SRM tomcat")
     parser.add_argument("-u","--url",dest="url",type=str,help="Please enter url")
     parser.add_argument("-f","--file",dest="file",type=str,help="Please enter file")
     args = parser.parse_args()
